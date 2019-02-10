@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Todos from './components/Todos'
 
@@ -14,7 +13,7 @@ class App extends Component {
       {
         id: 2,
         title: 'Dinner with wife',
-        completed: false
+        completed: true
       },
       {
         id: 3,
@@ -24,24 +23,14 @@ class App extends Component {
     ]
   }
 
+  markComplete = () => {
+    console.log('From app.js')
+}
+
   render() {
     return (
       <div className="App">
-      <Todos todos={this.state.todos}></Todos>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hello World
-          </p>          
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <Todos todos={this.state.todos} markComplete={this.markComplete}></Todos>
       </div>
     );
   }
